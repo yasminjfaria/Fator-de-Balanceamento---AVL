@@ -1,190 +1,350 @@
-### Inserção e balanceamento da árvore AVL
+# Inserção e Balanceamento da Árvore AVL
 
-Os valores foram inseridos na seguinte ordem:
-55, 26, 29, 13, 12, 11, 16, 1, 5, 29, -15, 4, 16, 8, 4, 5, 3, 1312, 100, 88.
+Nesta atividade, foram inseridos os seguintes valores na Árvore AVL:
 
-Para realizar as inserções, foi seguida a regra da Árvore Binária de Busca, em que os valores menores ficam à esquerda e os valores maiores ficam à direita.    
+**55, 26, 29, 13, 12, 11, 16, 1, 5, 29, -15, 4, 16, 8, 4, 5, 3, 1312, 100, 88.**
 
-Para verificar se a árvore estava balanceada, foi considerada a altura das subárvores. A altura corresponde à quantidade de arestas entre um nó e a folha mais distante abaixo dele.
+Durante as inserções, foi seguida a regra da Árvore Binária de Busca, em que os valores menores são posicionados à esquerda e os valores maiores à direita.
 
-Foi utilizado o cálculo:
+Para verificar se a árvore estava balanceada, foi analisada a altura das subárvores esquerda e direita de cada nó. A altura corresponde à quantidade de arestas existentes entre um nó e a folha mais distante abaixo dele.
 
-FB = altura da esquerda − altura da direita
+O cálculo utilizado para verificar o balanceamento foi:
 
-Quando o resultado fica entre -1 e +1, o nó está balanceado. Quando chega a +2 ou -2, é necessário realizar o balanceamento.
-Inserção do valor 29
+**FB = altura da esquerda - altura da direita**
 
-Primeiro foi inserido o valor 55, que se tornou a raiz. Depois foi inserido o 26, ficando à esquerda do 55.
-Ao inserir o 29, como 29 < 55, ele foi para a esquerda. Depois, como 29 > 26, ele ficou à direita do 26.
+Quando o resultado do Fator de Balanceamento (FB) está entre **-1 e +1**, o nó é considerado balanceado. Quando o resultado chega a **+2 ou -2**, é necessário realizar um balanceamento na árvore.
 
-Nesse momento, o nó 55 ficou desbalanceado.
-Cálculo:
-Altura da esquerda = 1
-Altura da direita = -1
-FB(55) = 1 − (-1) = +2
+---
 
-Como o valor foi inserido na direita do filho esquerdo, foi necessário fazer um balanceamento do tipo Esquerda-Direita (LR).
-Após o balanceamento, o valor 29 passou a ocupar a posição central entre 26 e 55.
-Inserção do valor 12
+## Inserção do valor 29
 
-Depois da inserção dos valores 13 e 12, o nó 26 ficou com a subárvore esquerda maior que a direita.
+Inicialmente, o valor **55** foi inserido e se tornou a raiz da árvore.
 
-Cálculo:
-Altura da esquerda = 1
-Altura da direita = -1
-FB(26) = 1 − (-1) = +2
+Em seguida, foi inserido o valor **26**. Como 26 é menor que 55, ele ficou à esquerda da raiz.
 
-Como os valores estavam concentrados no lado esquerdo, foi feito o balanceamento correspondente, fazendo com que o valor 13 passasse a ficar acima de 12 e 26.
-Inserção do valor 11
-Ao inserir o valor 11, o nó 29 ficou desbalanceado.
+Ao inserir o valor **29**, foi realizada a seguinte comparação:
 
-Cálculo:
-Altura da esquerda = 2
-Altura da direita = 0
-FB(29) = 2 − 0 = +2
+- 29 < 55, então seguimos para a esquerda;
+- 29 > 26, então o valor foi inserido à direita do 26.
 
-Foi necessário realizar novamente o balanceamento da árvore. Depois da correção, o valor 13 passou a ocupar uma posição superior nessa região.
-Inserção do valor 1
-O valor 1 foi inserido à esquerda do 11.
-Com essa inserção, o nó 12 ficou desbalanceado.
+Depois dessa inserção, o nó 55 ficou desbalanceado.
 
-Cálculo:
-Altura da esquerda = 1
-Altura da direita = -1
-FB(12) = 1 − (-1) = +2
+### Cálculo
 
-Após o balanceamento, o 11 passou a ficar entre o 1 e o 12.
-Inserção do valor 4
-Depois da inserção dos valores 5, 29, -15 e 4, ocorreu um novo desbalanceamento na região do nó 11.
+- Altura da esquerda = 1
+- Altura da direita = -1
 
-Cálculo:
-Altura da esquerda = 2
-Altura da direita = 0
-FB(11) = 2 − 0 = +2
+**FB(55) = 1 - (-1) = +2**
 
-Nesse caso, o crescimento ocorreu na direita da subárvore esquerda, sendo necessário realizar um balanceamento Esquerda-Direita.
-Inserção da segunda ocorrência de 16
-O valor 16 já aparecia na árvore, mas o visualizador utilizado permitiu inserir uma segunda ocorrência.
-Depois dessa inserção, o nó 26 ficou desbalanceado.
+Como o valor foi inserido na direita do filho esquerdo, foi necessário realizar um balanceamento do tipo **Esquerda-Direita (LR)**.
 
-Cálculo:
-Altura da esquerda = 1
-Altura da direita = -1
-FB(26) = 1 − (-1) = +2
+Após o balanceamento, o valor **29** passou a ocupar a posição central entre os valores 26 e 55.
 
-Foi realizado o balanceamento dessa região, mantendo os valores 16 e 26 corretamente organizados.
-Inserção do valor 88
-Após a inserção dos valores 1312, 100 e 88, ocorreu outro desbalanceamento.
-O valor 88 ficou abaixo do 100, que estava abaixo do 1312.
+---
 
-No nó 1312:
-Altura da esquerda = 1
-Altura da direita = -1
-FB(1312) = 1 − (-1) = +2
+## Inserção do valor 12
 
-Foi realizado o balanceamento dessa parte da árvore. Depois disso, o valor 100 passou a ficar entre 88 e 1312.
+Depois da inserção dos valores **13** e **12**, o nó 26 ficou com a subárvore esquerda maior que a direita.
 
-### Resultado após as inserções
+### Cálculo
 
-Depois de inserir todos os valores e realizar os balanceamentos necessários, a árvore ficou balanceada.
+- Altura da esquerda = 1
+- Altura da direita = -1
 
-O próprio material diferencia uma Árvore Binária de Busca não balanceada de uma Árvore AVL balanceada e apresenta o visualizador AVL utilizado na atividade.  
+**FB(26) = 1 - (-1) = +2**
 
-### Remoções
+Como o crescimento ocorreu no lado esquerdo, foi necessário realizar o balanceamento dessa região.
 
-Depois das inserções, foram removidos os valores:
-4, 29, 100, 5, 15, 16 e 55.
+Depois da correção, o valor **13** passou a ficar acima dos valores 12 e 26.
 
-Apresenta três situações de remoção: nó folha, nó com um filho e nó com dois filhos.  
+---
 
-Remoção do valor 4
-O valor 4 encontrado possuía dois filhos. Para realizar a remoção, foi utilizado o valor imediatamente menor disponível nessa região da árvore.
-O valor 3 foi utilizado na substituição.
+## Inserção do valor 11
 
-Após a remoção, a árvore continuou balanceada e não foi necessária uma nova rotação.
-Remoção do valor 29
-O nó 29 também possuía dois filhos.
+Ao inserir o valor **11**, ocorreu um novo desbalanceamento, dessa vez no nó 29.
 
-O valor imediatamente menor disponível na sua subárvore esquerda era o 26. Dessa forma, o valor 26 foi utilizado na substituição do 29.
-Depois da remoção, a árvore permaneceu balanceada.
+### Cálculo
 
-Remoção do valor 100
-O nó 100 possuía dois filhos: 88 e 1312.
-O valor imediatamente menor era o 88. Por isso, o 88 ocupou a posição anteriormente ocupada pelo 100.
-A árvore continuou balanceada após essa operação.
+- Altura da esquerda = 2
+- Altura da direita = 0
 
-O material explica que, para um nó com dois filhos, pode ser utilizado o valor imediatamente maior ou o imediatamente menor, dependendo da implementação.     
+**FB(29) = 2 - 0 = +2**
 
-Remoção do valor 5
-O primeiro valor 5 encontrado também possuía dois filhos.
-Foi utilizado o valor 4 para substituir o 5. Por esse motivo, na árvore final, o lado esquerdo da raiz passa a ter o valor 4 nessa posição.
+Como o resultado foi +2, foi necessário realizar novamente o balanceamento da árvore.
 
-Remoção do valor 15
-Ao buscar o valor 15, ele não foi encontrado na árvore.
-Por isso, nenhuma alteração foi realizada.
+Após o balanceamento, o valor **13** passou a ocupar uma posição superior nessa região.
 
-Remoção do valor 16
-Existiam duas ocorrências do valor 16.
-Ao remover uma delas, a outra permaneceu na árvore. Depois dessa operação, ocorreu um desbalanceamento na região do nó 26.
+---
 
-O cálculo ficou:
-Altura da esquerda = 0
-Altura da direita = 2
-FB(26) = 0 − 2 = -2
+## Inserção do valor 1
 
-Como o valor ficou desbalanceado para o lado direito, foi necessário realizar o balanceamento dessa região.
+O valor **1** foi inserido à esquerda do valor 11.
 
-Remoção do valor 55
-O valor 55 possuía dois filhos.
-Foi utilizado o maior valor existente na sua subárvore esquerda, que era o 29.
-Assim, o 29 passou a ocupar a posição do 55 e a ocorrência utilizada na substituição foi removida.
-Depois dessa operação, não foi necessária outra rotação.
+Após essa inserção, o nó 12 ficou desbalanceado.
 
-### Árvore final
+### Cálculo
+
+- Altura da esquerda = 1
+- Altura da direita = -1
+
+**FB(12) = 1 - (-1) = +2**
+
+Foi realizado o balanceamento e, após a correção, o valor **11** passou a ficar entre os valores 1 e 12.
+
+---
+
+## Inserção do valor 4
+
+Após as inserções dos valores **5, 29, -15 e 4**, ocorreu um novo desbalanceamento na região do nó 11.
+
+### Cálculo
+
+- Altura da esquerda = 2
+- Altura da direita = 0
+
+**FB(11) = 2 - 0 = +2**
+
+Nesse caso, o crescimento ocorreu na direita da subárvore esquerda. Por isso, foi necessário realizar um balanceamento do tipo **Esquerda-Direita (LR)**.
+
+---
+
+## Inserção da segunda ocorrência do valor 16
+
+O valor **16** já estava presente na árvore, porém o visualizador utilizado permitiu inserir uma segunda ocorrência.
+
+Após essa inserção, o nó 26 ficou desbalanceado.
+
+### Cálculo
+
+- Altura da esquerda = 1
+- Altura da direita = -1
+
+**FB(26) = 1 - (-1) = +2**
+
+Foi necessário realizar o balanceamento dessa região para manter a estrutura da árvore organizada e balanceada.
+
+---
+
+## Inserção do valor 88
+
+Depois da inserção dos valores **1312, 100 e 88**, ocorreu outro desbalanceamento.
+
+O valor 88 ficou abaixo do valor 100, que estava abaixo do 1312.
+
+No nó 1312, foi realizado o seguinte cálculo:
+
+- Altura da esquerda = 1
+- Altura da direita = -1
+
+**FB(1312) = 1 - (-1) = +2**
+
+Como o nó ficou desbalanceado, foi necessário realizar o balanceamento dessa parte da árvore.
+
+Após a correção, o valor **100** passou a ficar entre os valores 88 e 1312.
+
+---
+
+# Resultado após as inserções
+
+Depois de realizar todas as inserções e os balanceamentos necessários, a árvore permaneceu balanceada.
+
+Neste ponto, foi utilizado o visualizador de Árvore AVL disponibilizado no material da disciplina para acompanhar as alterações realizadas na estrutura.
+
+---
+
+# Remoções
+
+Depois da etapa de inserção, foram removidos os seguintes valores:
+
+**4, 29, 100, 5, 15, 16 e 55.**
+
+Durante as remoções, foram considerados os três casos estudados:
+
+- remoção de nó folha;
+- remoção de nó com um filho;
+- remoção de nó com dois filhos.
+
+---
+
+## Remoção do valor 4
+
+O primeiro valor **4** encontrado possuía dois filhos.
+
+Para realizar a remoção, foi utilizado o valor imediatamente menor disponível nessa região da árvore.
+
+O valor **3** foi utilizado para substituir o 4.
+
+Depois da remoção, a árvore continuou balanceada e não foi necessário realizar uma nova rotação.
+
+---
+
+## Remoção do valor 29
+
+O nó **29** também possuía dois filhos.
+
+O maior valor disponível na sua subárvore esquerda era o **26**.
+
+Dessa forma, o valor 26 foi utilizado para substituir o 29.
+
+Após a remoção, a árvore continuou balanceada.
+
+---
+
+## Remoção do valor 100
+
+O nó **100** possuía dois filhos: **88 e 1312**.
+
+O valor imediatamente menor era o **88**.
+
+Por esse motivo, o valor 88 passou a ocupar a posição que anteriormente pertencia ao 100.
+
+Depois dessa operação, a árvore permaneceu balanceada.
+
+Nos casos em que o nó possui dois filhos, pode ser utilizado o valor imediatamente maior ou o valor imediatamente menor, dependendo da implementação utilizada.
+
+---
+
+## Remoção do valor 5
+
+O primeiro valor **5** encontrado também possuía dois filhos.
+
+Para realizar a remoção, foi utilizado o valor **4** para substituí-lo.
+
+Por esse motivo, na árvore final, o lado esquerdo da raiz passou a apresentar o valor 4 nessa posição.
+
+---
+
+## Remoção do valor 15
+
+Ao realizar a busca pelo valor **15**, ele não foi encontrado na árvore.
+
+Por isso, nenhuma alteração foi realizada nessa etapa.
+
+---
+
+## Remoção do valor 16
+
+Existiam duas ocorrências do valor **16** na árvore.
+
+Ao remover uma delas, a outra permaneceu.
+
+Depois dessa remoção, ocorreu um desbalanceamento na região do nó 26.
+
+### Cálculo
+
+- Altura da esquerda = 0
+- Altura da direita = 2
+
+**FB(26) = 0 - 2 = -2**
+
+Como o resultado foi -2, o nó ficou desbalanceado para o lado direito.
+
+Por isso, foi necessário realizar o balanceamento dessa região.
+
+---
+
+## Remoção do valor 55
+
+O valor **55** possuía dois filhos.
+
+Para realizar a remoção, foi utilizado o maior valor existente na sua subárvore esquerda, que era o **29**.
+
+Assim, o valor 29 passou a ocupar a posição do 55 e a ocorrência utilizada na substituição foi removida.
+
+Depois dessa operação, não foi necessário realizar outro balanceamento.
+
+---
+
+# Árvore final
+
 Depois de realizar todas as inserções, balanceamentos e remoções, foi obtida a árvore final.
 
-Os valores 4, 29, 5 e 16 ainda aparecem porque existiam duas ocorrências de cada um deles na sequência de inserção e foi solicitada a remoção de apenas uma ocorrência.
-O valor 15 não aparece porque ele não fazia parte da sequência de inserção.
-Verificação do balanceamento final
+Os valores **4, 29, 5 e 16** ainda aparecem na árvore porque existiam duas ocorrências de cada um deles na sequência original de inserção, enquanto foi solicitada a remoção de apenas uma ocorrência.
 
-Na raiz, que possui o valor 13:
-Altura da subárvore esquerda = 3
-Altura da subárvore direita = 2
+O valor **15** não aparece porque ele não fazia parte da sequência de valores inseridos.
 
-Então:
-FB(13) = 3 − 2 = +1
-Como o resultado é +1, a raiz está balanceada.
-Alguns outros cálculos da árvore final são:
+---
 
-Nó 4:
-Altura esquerda = 1
-Altura direita = 2
-FB(4) = 1 − 2 = -1
+# Verificação do balanceamento final
 
-Nó 11:
-Altura esquerda = 1
-Altura direita = 0
-FB(11) = 1 − 0 = +1
+Para confirmar que a árvore final continuou balanceada, foram realizados alguns cálculos do Fator de Balanceamento.
 
-Nó 29:
-Altura esquerda = 1
-Altura direita = 1
-FB(29) = 1 − 1 = 0
+## Nó 13
 
-Nó 26:
-Altura esquerda = 0
-Altura direita = -1
-FB(26) = 0 − (-1) = +1
+A raiz da árvore possui o valor 13.
 
-Nó 88:
-Altura esquerda = -1
-Altura direita = 0
-FB(88) = -1 − 0 = -1
+- Altura da subárvore esquerda = 3
+- Altura da subárvore direita = 2
 
-Como os fatores encontrados ficam entre -1 e +1, a árvore final permanece balanceada.
+**FB(13) = 3 - 2 = +1**
 
-### Conclusão
+Como o resultado é +1, o nó 13 está balanceado.
 
-Durante a inserção dos elementos, os valores foram posicionados seguindo as regras da Árvore Binária de Busca, em que os valores menores ficam na subárvore esquerda e os maiores na subárvore direita. Após as inserções, o balanceamento da árvore foi realizado considerando as alturas das subárvores, de modo a manter a estrutura como uma Árvore AVL balanceada.
-Em seguida, foram realizadas as remoções dos valores 4, 29, 100, 5, 15, 16 e 55, considerando os diferentes casos de remoção de nós apresentados no conteúdo: nó folha, nó com um filho e nó com dois filhos. O valor 15 não estava presente na árvore e, por isso, sua tentativa de remoção não provocou alteração.
-Ao final das operações, a árvore permaneceu balanceada e respeitando as propriedades de uma Árvore Binária de Busca.
+---
+
+## Nó 4
+
+- Altura da esquerda = 1
+- Altura da direita = 2
+
+**FB(4) = 1 - 2 = -1**
+
+O nó 4 está balanceado.
+
+---
+
+## Nó 11
+
+- Altura da esquerda = 1
+- Altura da direita = 0
+
+**FB(11) = 1 - 0 = +1**
+
+O nó 11 está balanceado.
+
+---
+
+## Nó 29
+
+- Altura da esquerda = 1
+- Altura da direita = 1
+
+**FB(29) = 1 - 1 = 0**
+
+O nó 29 está balanceado.
+
+---
+
+## Nó 26
+
+- Altura da esquerda = 0
+- Altura da direita = -1
+
+**FB(26) = 0 - (-1) = +1**
+
+O nó 26 está balanceado.
+
+---
+
+## Nó 88
+
+- Altura da esquerda = -1
+- Altura da direita = 0
+
+**FB(88) = -1 - 0 = -1**
+
+O nó 88 também está balanceado.
+
+Como todos os fatores de balanceamento analisados ficaram entre **-1 e +1**, foi possível verificar que a árvore final permaneceu balanceada.
+
+---
+
+# Conclusão
+
+Nesta atividade foi possível acompanhar, na prática, o funcionamento de uma Árvore AVL desde a inserção dos elementos até a realização das remoções.
+
+Durante as inserções, os valores foram organizados seguindo as regras de uma Árvore Binária de Busca, em que os valores menores ficam à esquerda e os maiores ficam à direita. Sempre que foi identificado algum desbalanceamento entre as subárvores, foi necessário realizar o balanceamento para manter a estrutura da árvore AVL.
+
+Na etapa de remoção, foram analisadas diferentes situações, como nós com um filho e nós com dois filhos. Também foi possível observar o comportamento da árvore quando o valor procurado não existia, como aconteceu com o valor 15.
+
+Depois de todas as inserções e remoções, foram verificados novamente os fatores de balanceamento de alguns nós. Os resultados permaneceram entre -1 e +1, indicando que a árvore final continuou balanceada e mantendo as propriedades de uma Árvore Binária de Busca.
